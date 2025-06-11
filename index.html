@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quang Bảo | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .clock {
+      color: red;
+      border: 1px solid red;
+      text-shadow: 0 0 10px red;
+
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      font-size: 1rem;
+      color: #ffffffcc;
+      font-weight: bold;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .marquee {
+      text-shadow: 0 0 10px #00c6ff, 0 0 20px #00c6ff;
+
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #00c6ff;
+      font-weight: bold;
+      padding: 5px 0;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+  
+    #bgVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(0.4);
+    }
+
+    body {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+
+      scroll-behavior: smooth;
+    }
+    .section {
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.06);
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      color: #fff;
+    }
+    .section h2 {
+      font-size: 24px;
+      color: #00c6ff;
+      margin-bottom: 10px;
+    }
+    .section p, .section ul {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .section ul li {
+      margin: 8px 0;
+    }
+
+.social-links {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10;
+}
+.social-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  color: white;
+  background-color: rgba(255,255,255,0.1);
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.social-icon:hover {
+  background-color: #00c6ff;
+  transform: scale(1.1);
+}
+.social-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 6px solid;
+  border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+  animation: borderRotate 8s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+@keyframes borderRotate {
+  0% { border-image-source: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); }
+  25% { border-image-source: linear-gradient(135deg, orange, yellow, green, blue, indigo, violet, red); }
+  50% { border-image-source: linear-gradient(225deg, yellow, green, blue, indigo, violet, red, orange); }
+  75% { border-image-source: linear-gradient(315deg, green, blue, indigo, violet, red, orange, yellow); }
+  100% { border-image-source: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); }
+}
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <video autoplay muted loop id="bgVideo">
+    <source src="background-video.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video nền.
+  </video>
+
+  
+
+
+<script>
+  // Thông báo khi người dùng vừa truy cập vào website
+  window.addEventListener('load', function() {
+    alert('Cảm ơn bạn đã truy cập trang website của Quang Bảo!');
+  });
+</script>
+
+<!-- Snow Effect -->
+<style>
+.snowflake {
+  position: fixed;
+  top: -10px;
+  z-index: 9999;
+  color: white;
+  font-size: 1em;
+  user-select: none;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+</style>
+<script>
+function createSnowflake() {
+  const snowflake = document.createElement('div');
+  snowflake.classList.add('snowflake');
+  snowflake.textContent = '❄️';
+  snowflake.style.left = Math.random() * window.innerWidth + 'px';
+  snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+  snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+  document.body.appendChild(snowflake);
+  setTimeout(() => snowflake.remove(), 5000);
+}
+setInterval(createSnowflake, 200);
+</script>
+
+
+<style>
+.shooting-star {
+  position: fixed;
+  top: 0;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(180deg, white, transparent);
+  opacity: 0.8;
+  z-index: 9999;
+  pointer-events: none;
+  transform: rotate(45deg);
+  animation: shooting linear 1s forwards;
+}
+@keyframes shooting {
+  0% {
+    top: -10%;
+    left: calc(100% * var(--start-x));
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    left: calc(100% * var(--end-x));
+    opacity: 0;
+  }
+}
+</style>
+<script>
+function createShootingStar() {
+  const star = document.createElement("div");
+  star.classList.add("shooting-star");
+  const startX = Math.random();
+  const endX = startX + (Math.random() * 0.2 - 0.1);
+  star.style.setProperty('--start-x', startX);
+  star.style.setProperty('--end-x', endX);
+  document.body.appendChild(star);
+  setTimeout(() => star.remove(), 1000);
+}
+setInterval(createShootingStar, 3000);
+</script>
+
+
+<style>
+#battery-status {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+</style>
+<div id="battery-status">🔋 Pin: --%</div>
+<script>
+navigator.getBattery().then(function(battery) {
+  function updateBatteryStatus() {
+    const level = Math.round(battery.level * 100);
+    document.getElementById('battery-status').textContent = '🔋 Pin: ' + level + '%';
+  }
+  updateBatteryStatus();
+  battery.addEventListener('levelchange', updateBatteryStatus);
+});
+</script>
+
+
+<style>
+#low-battery-popup {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 0, 0, 0.85);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  box-shadow: 0 0 10px red;
+  z-index: 10000;
+  display: none;
+}
+#low-battery-popup button {
+  margin-left: 20px;
+  background: white;
+  color: red;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+</style>
+<div id="low-battery-popup">
+  ⚠️ Pin của bạn dưới 20%. Hãy sạc thiết bị sớm!
+  <button onclick="document.getElementById('low-battery-popup').style.display='none'">Đóng</button>
+</div>
+<script>
+navigator.getBattery().then(function(battery) {
+  function checkBatteryLevel() {
+    const level = battery.level * 100;
+    if (level < 20) {
+      document.getElementById('low-battery-popup').style.display = 'block';
+    }
+  }
+  checkBatteryLevel();
+  battery.addEventListener('levelchange', checkBatteryLevel);
+});
+</script>
+
+
+<style>
+#music-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: black;
+  color: white;
+  border: 2px solid red;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 0 10px red, 0 0 20px red;
+  transition: 0.3s ease;
+}
+#music-toggle:hover {
+  background-color: red;
+  color: white;
+}
+</style>
+
+<audio id="bg-music" loop autoplay style="display:none">
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+<button id="music-toggle">🔊 Tắt nhạc</button>
+<script>
+const music = document.getElementById("bg-music");
+const toggleBtn = document.getElementById("music-toggle");
+toggleBtn.onclick = function() {
+  if (music.paused) {
+    music.play();
+    toggleBtn.innerHTML = "🔊 Tắt nhạc";
+  } else {
+    music.pause();
+    toggleBtn.innerHTML = "🔈 Bật nhạc";
+  }
+};
+</script>
+
+
+<script>
+window.addEventListener("load", function() {
+  const hour = new Date().getHours();
+  let message = "";
+  if (hour >= 5 && hour < 11) {
+    message = "🌞 Chào buổi sáng! Chúc bạn một ngày tuyệt vời!";
+  } else if (hour >= 11 && hour < 18) {
+    message = "🌤️ Chúc bạn buổi chiều vui vẻ và năng động!";
+  } else if (hour >= 18 && hour < 22) {
+    message = "🌙 Chúc bạn một buổi tối thư giãn!";
+  } else {
+    message = "🌌 Đã tối rồi! Chúc bạn ngủ ngon và mơ đẹp!";
+  }
+
+  const div = document.createElement("div");
+  div.textContent = message;
+  div.style.position = "fixed";
+  div.style.top = "80px";
+  div.style.left = "50%";
+  div.style.transform = "translateX(-50%)";
+  div.style.background = "rgba(0, 0, 0, 0.7)";
+  div.style.color = "white";
+  div.style.padding = "12px 24px";
+  div.style.borderRadius = "10px";
+  div.style.fontSize = "16px";
+  div.style.zIndex = "10000";
+  div.style.boxShadow = "0 0 10px rgba(255, 255, 255, 0.6)";
+  document.body.appendChild(div);
+
+  setTimeout(() => {
+    div.remove();
+  }, 6000);
+});
+</script>
+
+
+<script>
+window.addEventListener("beforeunload", function (e) {
+  const message = "👋 Tạm Biệt Và Hẹn Gặp Lại... Yamate 😆";
+  e.preventDefault();
+  e.returnValue = message;
+  return message;
+});
+</script>
+
+</body>
+</html>
+
+</html>
